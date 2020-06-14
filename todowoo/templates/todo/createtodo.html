@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+{% extends "todo/base.html" %}
+{% load staticfiles %}
+
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'todo/createtodo.css' %}">      
+
+    <div class="container"> 
+        <div class="jumbotron" >
+
+        {{ error }}
+        {% csrf_token %}
+
+        
+        <form  method="POST" >
+            {% csrf_token %}
+            
+            
+            <label for="id_title">Title:</label>
+            <input id="id_title" type="text" name="title" maxlength="100"  required />
+            <br>
+            <br>
+            <label for="id_memo">Memo:</label>
+            <textarea name="memo" cols="40" id="id_memo" rows="5"></textarea>
+            
+            <br>
+            <label for="id_important">Important:</label>
+            <input type="checkbox" name="important" id="id_important">
+            <br>
+            <button type="submit"> Create</button>
+
+        </form>
+         
+        </div>
+    </div> 
+{% endblock content %}

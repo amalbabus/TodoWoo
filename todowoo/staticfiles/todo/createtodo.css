@@ -1,0 +1,21 @@
+#id_title{
+    
+    padding-left: 0cm;
+}
+
+body{
+    background-color: greenyellow;
+}
+form{
+    margin: 0 auto;
+    
+}
+
+
+
+/* form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+   } */

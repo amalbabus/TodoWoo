@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+  <link rel="stylesheet" href=" {% static 'todo/heading.css' %} ">
+</head>
+<body>
+  
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      
+
+
+
+ 
+{% if user.is_authenticated %}
+
+<p class="navbar-text"> Signed in as {{ user.username }} </p>
+    
+
+
+    <a class="btn btn-default navbar-btn" href=" {% url 'createtodo' %} "> Create New</a>
+
+    <!-- <form method="GET" action= " {% url 'createtodo' %} ">
+        
+        <button type="submit"> Create New</button>
+      </form> -->
+      
+
+      <a class="btn btn-default navbar-btn" href="{% url 'completedtodo' %} ">Completedtodo </a>
+        <!-- <form method="GET" action= " {% url 'completedtodo' %} ">
+          
+          <button type="submit"> Completedtodo</button>
+        </form> -->
+
+      <a class="btn btn-default navbar-btn" href=" {% url 'currenttodos' %} "> Current </a>
+<!-- 
+          <form action= " {% url 'currenttodos' %} ">
+            
+            <button type="submit"> Current</button>
+        
+      </form>
+       -->
+        <a class="btn btn-default navbar-btn" method='POST' href=" {% url 'logoutuser' %} "> Logout</a>
+    <!-- <form action="{% url 'logoutuser' %}" method="POST" >
+        {% csrf_token %}
+       <button type="submit"> logout</button>
+             -->
+    </form>
+{% else %}
+<a class="btn btn-default navbar-btn" href="{% url 'signupuser' %}"> SignUP</a>
+<a class="btn btn-default navbar-btn" href="{% url 'loginuser' %}"> Login</a>
+
+{% endif %}
+
+</div>
+</nav>
+
+
+{% block content %}
+
+
+  
+{% endblock content %}
+
+
+
+
+</body>
+
+</html>

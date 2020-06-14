@@ -1,0 +1,19 @@
+body { 
+    padding-top: 100px; }
+
+.navbar-header{
+
+    
+    font-family: 'Sriracha', cursive;
+    font-size: x-large;
+}
+
+
+.navbar-custom { 
+    background-color: rgb(245, 182, 9); 
+} 
+
+#link1{
+
+    margin-left: 20px;
+}

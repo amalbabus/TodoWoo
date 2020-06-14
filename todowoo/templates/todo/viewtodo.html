@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% extends "todo/base.html" %}
+{% load staticfiles %}
+
+
+
+    
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'todo/viewtodo.css' %} ">  
+
+
+<div class="container" >
+    <div class="jumbotron">
+
+
+    {{ error }}
+        
+     <form  method="POST">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <div class="button-horizontal"> 
+        <button type="submit"> Save</button>
+        </div>
+         </form>
+
+     
+
+    <form  method="POST" action=" {% url 'completetodo' todo.id %} " >
+        {% csrf_token %}
+     
+        <div class="button-horizontal"> 
+        <button type="submit"> Complete</button>
+         </div>
+    </form>
+
+    <form  method="POST" action=" {% url 'deletetodo' todo.id %} " >
+        {% csrf_token %}
+        
+        <div class="button-horizontal"> 
+        <button type="submit"> Delete</button>
+        </div>
+    </form>
+        
+</div>
+</div>
+
+
+
+{% endblock content %}
+
+</html>

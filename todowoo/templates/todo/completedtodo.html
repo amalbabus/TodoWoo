@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends "todo/base.html" %}
+
+
+
+{% block content %}
+<div class="container">
+
+  
+
+  <ul>
+    {% for todo in todos  %}
+  
+    
+    <button type="button" class="btn btn-secondary btn-lg btn-block"> 
+      {{ todo.title }}
+
+      {% if todo.memo %}
+             --- {{ todo.memo }}
+            {% endif %}
+
+    </button>
+     
+            
+     
+  
+    {% endfor %}
+    </ul>
+
+</div>
+{% endblock content %}

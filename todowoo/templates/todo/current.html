@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends "todo/base.html" %}
+
+
+
+{% block content %}
+<!-- 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
+  <h1>{{ message }}</h1>
+<ul>
+
+ 
+
+
+  {% for todo in todos  %}
+
+    {% if todo.important %}
+    <form action="{% url 'viewtodo' todo.id %}">
+      <button class="btn btn-secondary btn-lg btn-block btn-danger" type="submit">{{ todo.title }} 
+        {% if todo.memo %}
+         --- {{ todo.memo }}
+        {% endif %}</button>
+   </form>
+      
+          
+    {% else %}
+    <form action="{% url 'viewtodo' todo.id %}">
+      <button class="btn btn-secondary btn-lg btn-block btn-success" type="submit">{{ todo.title }} 
+        {% if todo.memo %}
+         --- {{ todo.memo }}
+        {% endif %}</button>
+      
+    {% endif %}
+    
+    
+
+  {% endfor %}
+
+</ul>
+
+{% endblock content %}
